@@ -13,5 +13,6 @@ let reduce = function(arr,callback){
     for (let i = 0; i < arr.length; i++ ){
         s = s + (callback(arr[i],0))
    }
+   return s 
 }
 
