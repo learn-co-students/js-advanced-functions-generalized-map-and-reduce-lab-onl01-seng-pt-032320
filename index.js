@@ -9,7 +9,7 @@ let map = function(arr,callback){
 }
 
 let reduce = function(arr,callback){
- let value;
+ let value = 0 
     for (let i = 0; i < arr.length; i++ ){
         value = (callback(arr[i]))
    }
