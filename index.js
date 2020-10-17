@@ -8,19 +8,23 @@ let map = function(arr,callback){
     return r 
 }
 
-let reduce = function(arr,callback,start = 1) {
-    if (start === 1) {
-        start = 0
+let reduce = function(arr,callback,start) {
+    let value;
+    if (start) {
+        value = start 
+        for (let i = 0; i < arr.length; i++ ){
+            value = (callback(arr[i],value))
+        }
     }
-    for (let i = 0; i < arr.length; i++ ){
-       start = (callback(arr[i],start))
-   }
-//    if (start) {
-//        return true 
-//    }
-//    else {
-//        return false 
-//    }
-    return start
+
+    else {
+        value = arr[0]
+        for (let i = 1; i < arr.length; i++ ){
+            value = (callback(arr[i],value))
+        }
+    }
+return value
 }
+
+
 
