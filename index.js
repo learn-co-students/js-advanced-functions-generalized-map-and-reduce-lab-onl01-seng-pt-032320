@@ -6,8 +6,10 @@ function map(array, func) {
 }
 
 // REDUCE
-function reduce(array, func, runningTotal=1) {
-    for (const elem of array) {runningTotal = func(elem,runningTotal) }
-    if (runningTotal===7) { runningTotal-=1 };
+function reduce(array, func, runningTotal) {
+    let newArray = Object.assign([], array);
+    if (!runningTotal) {runningTotal = newArray.shift() }
+    for (const elem of newArray) {runningTotal = func(elem,runningTotal) }
+    // if (runningTotal===7) { runningTotal-=1 };
     return runningTotal;
 }
